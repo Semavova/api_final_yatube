@@ -57,6 +57,7 @@ class Post(models.Model):
     )
 
     class Meta:
+        ordering = ('pub_date',)
         verbose_name = 'Пост'
         verbose_name_plural = 'Посты'
 
@@ -136,5 +137,5 @@ class Follow(models.Model):
     def __str__(self):
         return (
             f'Подписчик: {self.user.username},'
-            f'автор: {self.author.username}'
+            f'автор: {self.following.username}'
         )
